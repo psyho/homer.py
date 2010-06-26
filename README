@@ -1,0 +1,3 @@
+Homer - a utility script to rename TV show episode files
+
+It takes a name of a TV show, looks up the episode names on IMDB, then it lists the files in current directory, maps them to episode numbers and renames the episodes in format: "Show Name - SSxEE - Episode Name.ext" 
