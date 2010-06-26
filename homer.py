@@ -97,6 +97,13 @@ def rename_episode(file, new_name):
     else:
         os.rename(file, new_name)
 
+def renameable_files_in_current_directory(all_episodes, default_season, show_name):
+    files = get_files_in_current_directory()
+    for file in files:
+        new_name = get_new_name(file, all_episodes, default_season, show_name)
+        if new_name:
+            yield (file, new_name)
+
 def main():
     options, args = parse_commandline_arguments()
     show_name = args[0]
@@ -109,16 +116,13 @@ def main():
         return
     if dry_run:
         print "Dry run: will not perform renames\n\n"
-    files = get_files_in_current_directory()    
-    renameable_count = 0
-    for file in files:
-        new_name = get_new_name(file, all_episodes, default_season, show_name)
-        if new_name:
-            print "'%s' => '%s'" % (file, new_name)        
-            renameable_count += 1
+    nothing_to_rename = True
+    for file, new_name in renameable_files_in_current_directory(all_episodes, default_season, show_name):
+        nothing_to_rename = False
+        print "'%s' => '%s'" % (file, new_name)        
         if not dry_run:        
             rename_episode(file, new_name)
-    if not renameable_count:
+    if nothing_to_rename:
         print "Could not find any episode to rename"
 
 if __name__ == '__main__':
