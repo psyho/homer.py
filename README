@@ -1,3 +1,52 @@
 Homer - a utility script to rename TV show episode files
 
-It takes a name of a TV show, looks up the episode names on IMDB, then it lists the files in current directory, maps them to episode numbers and renames the episodes in format: "Show Name - SSxEE - Episode Name.ext" 
+It takes a name of a TV show, looks up the episode names on IMDB, then it lists the files in current directory, maps them to episode numbers and renames the episodes in format: "Show Name - SSxEE - Episode Name.ext"
+
+For example:
+
+[/media/.../Season 09] → ls
+The.Simpsons.S09E09.INTERNAL.DVDRip.XviD-TOPAZ.avi  tpz-simpsons905.avi  tpz-simpsons911.avi  tpz-simpsons916.avi  tpz-simpsons921.avi
+tpz-simpsons901.avi                                 tpz-simpsons906.avi  tpz-simpsons912.avi  tpz-simpsons917.avi  tpz-simpsons922.avi
+tpz-simpsons902.avi                                 tpz-simpsons907.avi  tpz-simpsons913.avi  tpz-simpsons918.avi  tpz-simpsons923.avi
+tpz-simpsons903.avi                                 tpz-simpsons908.avi  tpz-simpsons914.avi  tpz-simpsons919.avi  tpz-simpsons924.avi
+tpz-simpsons904.avi                                 tpz-simpsons910.avi  tpz-simpsons915.avi  tpz-simpsons920.avi  tpz-simpsons925.avi
+[/media/.../Season 09] → homer -r "The Simpsons"
+'The.Simpsons.S09E09.INTERNAL.DVDRip.XviD-TOPAZ.avi' => 'The Simpsons - 09x09 - Realty Bites.avi'
+'tpz-simpsons901.avi' => 'The Simpsons - 09x01 - The City of New York vs. Homer Simpson.avi'
+'tpz-simpsons902.avi' => 'The Simpsons - 09x02 - The Principal and the Pauper.avi'
+'tpz-simpsons903.avi' => 'The Simpsons - 09x03 - Lisa's Sax.avi'
+'tpz-simpsons904.avi' => 'The Simpsons - 09x04 - Treehouse of Horror VIII.avi'
+'tpz-simpsons905.avi' => 'The Simpsons - 09x05 - The Cartridge Family.avi'
+'tpz-simpsons906.avi' => 'The Simpsons - 09x06 - Bart Star.avi'
+'tpz-simpsons907.avi' => 'The Simpsons - 09x07 - The Two Mrs. Nahasapeemapetilons.avi'
+'tpz-simpsons908.avi' => 'The Simpsons - 09x08 - Lisa the Skeptic.avi'
+'tpz-simpsons910.avi' => 'The Simpsons - 09x10 - Miracle on Evergreen Terrace.avi'
+'tpz-simpsons911.avi' => 'The Simpsons - 09x11 - All Singing, All Dancing.avi'
+'tpz-simpsons912.avi' => 'The Simpsons - 09x12 - Bart Carny.avi'
+'tpz-simpsons913.avi' => 'The Simpsons - 09x13 - The Joy of Sect.avi'
+'tpz-simpsons914.avi' => 'The Simpsons - 09x14 - Das Bus.avi'
+'tpz-simpsons915.avi' => 'The Simpsons - 09x15 - The Last Temptation of Krust.avi'
+'tpz-simpsons916.avi' => 'The Simpsons - 09x16 - Dumbbell Indemnity.avi'
+'tpz-simpsons917.avi' => 'The Simpsons - 09x17 - Lisa the Simpson.avi'
+'tpz-simpsons918.avi' => 'The Simpsons - 09x18 - This Little Wiggy.avi'
+'tpz-simpsons919.avi' => 'The Simpsons - 09x19 - Simpson Tide.avi'
+'tpz-simpsons920.avi' => 'The Simpsons - 09x20 - The Trouble with Trillions.avi'
+'tpz-simpsons921.avi' => 'The Simpsons - 09x21 - Girly Edition.avi'
+'tpz-simpsons922.avi' => 'The Simpsons - 09x22 - Trash of the Titans.avi'
+'tpz-simpsons923.avi' => 'The Simpsons - 09x23 - King of the Hill.avi'
+'tpz-simpsons924.avi' => 'The Simpsons - 09x24 - Lost Our Lisa.avi'
+'tpz-simpsons925.avi' => 'The Simpsons - 09x25 - Natural Born Kissers.avi'
+[/media/.../Season 09] → ls
+The Simpsons - 09x01 - The City of New York vs. Homer Simpson.avi  The Simpsons - 09x14 - Das Bus.avi
+The Simpsons - 09x02 - The Principal and the Pauper.avi            The Simpsons - 09x15 - The Last Temptation of Krust.avi
+The Simpsons - 09x03 - Lisa's Sax.avi                              The Simpsons - 09x16 - Dumbbell Indemnity.avi
+The Simpsons - 09x04 - Treehouse of Horror VIII.avi                The Simpsons - 09x17 - Lisa the Simpson.avi
+The Simpsons - 09x05 - The Cartridge Family.avi                    The Simpsons - 09x18 - This Little Wiggy.avi
+The Simpsons - 09x06 - Bart Star.avi                               The Simpsons - 09x19 - Simpson Tide.avi
+The Simpsons - 09x07 - The Two Mrs. Nahasapeemapetilons.avi        The Simpsons - 09x20 - The Trouble with Trillions.avi
+The Simpsons - 09x08 - Lisa the Skeptic.avi                        The Simpsons - 09x21 - Girly Edition.avi
+The Simpsons - 09x09 - Realty Bites.avi                            The Simpsons - 09x22 - Trash of the Titans.avi
+The Simpsons - 09x10 - Miracle on Evergreen Terrace.avi            The Simpsons - 09x23 - King of the Hill.avi
+The Simpsons - 09x11 - All Singing, All Dancing.avi                The Simpsons - 09x24 - Lost Our Lisa.avi
+The Simpsons - 09x12 - Bart Carny.avi                              The Simpsons - 09x25 - Natural Born Kissers.avi
+The Simpsons - 09x13 - The Joy of Sect.avi 
