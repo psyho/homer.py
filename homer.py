@@ -86,6 +86,7 @@ def remove_illegal_characters(string):
 def get_new_name(file_name, episode_list, default_season, show_name):
     episode_number = get_episode_number(file_name, default_season)
     if not episode_number: return None
+    if not episode_list.has_key(episode_number): return None
     extension = get_extension(file_name)        
     return new_file_name(show_name, episode_number, episode_list[episode_number], extension) 
 
