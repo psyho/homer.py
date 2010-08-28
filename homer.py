@@ -79,7 +79,7 @@ def new_file_name(show_name, episode_number, title, extension):
     return remove_illegal_characters("%s - %s - %s%s" % (show_name, episode_number, title, extension))
 
 def remove_illegal_characters(string):
-    illegal_chars = '*/:<>?\|;"'
+    illegal_chars = '*/:<>?\|;"!'
     for char in illegal_chars:
         string = string.replace(char, '')
     return string
@@ -121,7 +121,7 @@ def main():
     nothing_to_rename = True
     for file, new_name in renameable_files_in_current_directory(all_episodes, default_season, show_name):
         nothing_to_rename = False
-        print "'%s' => '%s'" % (file, new_name)        
+        print "'%s' => '%s'" % (file, new_name)
         if not dry_run:        
             rename_episode(file, new_name)
     if nothing_to_rename:
